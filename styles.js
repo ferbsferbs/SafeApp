@@ -3,13 +3,15 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 
     container: {
-
+        backgroundColor:'#1b1d21',
+        flex:1,
         padding: 20
     },
     title: {
         fontSize: 30,
         textAlign: "center",
-        marginBottom: 20
+        marginBottom: 20,
+        color:'white'
     },
     btn: {
 
@@ -23,12 +25,14 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     inputUnit: {
-        marginBottom: 20
+        marginBottom: 20,
+        color:'white'
     },
     text: {
 
         fontSize: 20,
-        marginBottom: 20
+        marginBottom: 20,
+        color:'white'
     },
     error: {
 
@@ -39,14 +43,15 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         marginBottom: 20,
-        textAlign: "center"
+        textAlign: "center",
+        color:'white'
     },
     input: {
         padding: 10,
         height: 60,
         fontSize: 20,
         borderWidth: 1,
-        borderColor: "rgba(0, 0, 0, .4)",
+        borderColor: "white",
         marginBottom: 20
     }
 })

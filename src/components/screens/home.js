@@ -4,12 +4,15 @@ import {
     View,
     Text,
     Button,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from "react-native";
 import { connect } from "react-redux";
 import mainStyles from "../../../styles";
 
 import { getUser, logoutUser } from "../../../actions";
+import { Icon } from "native-base";
+
 
 class Home extends Component {
 
@@ -29,35 +32,57 @@ class Home extends Component {
 
     }
 
-    renderUser = () => {
 
-        let user = this.props.userData.userData;
-
-        if (user) {
-
-            let data = JSON.parse(user);
-
-            return <View>
-
-                <Text style={{
-                    fontSize: 30,
-                    textAlign: 'center',
-                    marginBottom: 20,
-                    textTransform: "capitalize"
-                }}> Welcome: {data.username} </Text>
-            </View>
-        }
-
-    }
 
     render() {
 
         return <View style={mainStyles.container}>
-            {this.renderUser()}
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Text>{this.props.userData.userData}</Text>
+            </View>
+            <View style={{ flexDirection: "row" }} >
+                <View style={{ width: Dimensions.get('window').width / 2, height: Dimensions.get('window').height }}>
+                    <View>
+                        <TouchableOpacity>
+                            <Icon name="address-card" type="FontAwesome5" style={{ fontSize: 100, color: 'red' }} />
+                            <Text style={{ fontSize: 25, fontFamily: 'Gotham-Book', fontWeight: 'bold', color: 'white' }}>Informacion Personal</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ paddingTop: '20%' }}>
+                        <TouchableOpacity>
+                            <Icon name="address-card" type="FontAwesome5" style={{ fontSize: 100, color: 'red' }} />
+                            <Text style={{ fontSize: 25, fontFamily: 'Gotham-Book', fontWeight: 'bold', color: 'white' }}>Informacion Personal</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ paddingTop: '20%' }}>
+                        <TouchableOpacity>
+                            <Icon name="address-card" type="FontAwesome5" style={{ fontSize: 100, color: 'red' }} />
+                            <Text style={{ fontSize: 25, fontFamily: 'Gotham-Book', fontWeight: 'bold', color: 'white' }}>Informacion Personal</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={{ width: Dimensions.get('window').width / 2, height: Dimensions.get('window').height }}>
 
-            <TouchableOpacity style={mainStyles.btn} onPress={() => this.handleLogout()}>
-                <Text style={mainStyles.btnText}>Logout</Text>
-            </TouchableOpacity>
+                    <View>
+                        <TouchableOpacity>
+                            <Icon name="address-card" type="FontAwesome5" style={{ fontSize: 100, color: 'red' }} />
+                            <Text style={{ fontSize: 25, fontFamily: 'Gotham-Book', fontWeight: 'bold', color: 'white' }}>Informacion Personal</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ paddingTop: '20%' }}>
+                        <TouchableOpacity>
+                            <Icon name="address-card" type="FontAwesome5" style={{ fontSize: 100, color: 'red' }} />
+                            <Text style={{ fontSize: 25, fontFamily: 'Gotham-Book', fontWeight: 'bold', color: 'white' }}>Informacion Personal</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ paddingTop: '20%' }}>
+                        <TouchableOpacity >
+                            <Icon name="sign-out-alt" type="FontAwesome5" style={{ fontSize: 100, color: 'red' }} />
+                            <Text style={{ fontSize: 25, fontFamily: 'Gotham-Book', fontWeight: 'bold', color: 'white' }}>Logout</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
         </View>
     }
 }

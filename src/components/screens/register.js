@@ -63,9 +63,9 @@ class Register extends Component {
             })
         } else {
 
-            firebase.database().ref("users").push(data).then(() => {
+                console.warn(this.state.formData)
                 this.props.navigation.navigate("Login")
-            })
+            
         }
 
 
@@ -88,33 +88,33 @@ class Register extends Component {
 
     render() {
 
-        return <ScrollView>
+        return <ScrollView style={styles.container} >
             <KeyboardAvoidingView>
 
                 <View style={styles.container}>
 
-                    <Text style={styles.title}> Create An Account </Text>
+                    <Text style={styles.title}> Registrar usuario </Text>
 
                     <View>
-                        <Text style={styles.text}> Name</Text>
-                        <TextInput placeholder="Name" style={styles.input} onChangeText={name => this.handleChange({ field: "name", value: name })} />
+                        <Text style={styles.text}>Nombre y apellido</Text>
+                        <TextInput placeholder="Nombre completo" style={styles.input} onChangeText={name => this.handleChange({ field: "name", value: name })} />
                         {this.renderError("name")}
                     </View>
 
                     <View>
-                        <Text style={styles.text}> Username</Text>
-                        <TextInput placeholder="username" style={styles.input} onChangeText={username => this.handleChange({ field: "username", value: username })} />
+                        <Text style={styles.text}>Nombre de usuario</Text>
+                        <TextInput placeholder="usuario" style={styles.input} onChangeText={username => this.handleChange({ field: "username", value: username })} />
                     </View>
 
                     <View>
-                        <Text style={styles.text}>Password</Text>
-                        <TextInput placeholder="password" secureTextEntry style={styles.input} onChangeText={password => this.handleChange({ field: "password", value: password })} />
+                        <Text style={styles.text}>contra</Text>
+                        <TextInput placeholder="contra" secureTextEntry style={styles.input} onChangeText={password => this.handleChange({ field: "password", value: password })} />
                     </View>
 
 
 
                     <TouchableOpacity style={styles.btn} onPress={() => this.handleSubmit()}>
-                        <Text style={styles.btnText}> Create Account </Text>
+                        <Text style={styles.btnText}> Registrar datos! </Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={{
@@ -123,8 +123,9 @@ class Register extends Component {
                     }} onPress={() => this.props.navigation.navigate("Login")} >
                         <Text style={{
                             fontSize: 18,
-                            textAlign: "center"
-                        }}> Already have  an Account? Login</Text>
+                            textAlign: "center",
+                            color:'white'
+                        }}> hace click para logearse</Text>
                     </TouchableOpacity>
                 </View>
             </KeyboardAvoidingView>

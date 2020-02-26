@@ -70,29 +70,7 @@ class Login extends Component {
                 errors: null
             })
 
-            firebase.database().ref(`users`).orderByChild("username").once("value").then(snapshot => {
-
-                let data = [];
-                snapshot.forEach(childSnapshot => {
-                    data.push({ id: childSnapshot.key, ...childSnapshot.val() });
-                });
-
-                let user = data.find(item => {
-                    return item.username == formData.username
-                })
-
-                //check if password match
-                if (user && user.password === formData.password) {
-                    this.props.dispatch(loginUser(JSON.stringify(formData)));
-                    this.props.navigation.navigate("Home")
-                } else {
-                    this.setState({
-                        feedBack: "Invalid Username/Password combination"
-                    })
-                }
-
-
-            })
+            console.warn(this.state.formData)
 
         }
 
@@ -131,9 +109,9 @@ class Login extends Component {
 
     render() {
 
-        return <ScrollView>
+        return <ScrollView style={mainStyles.container}>
 
-            <KeyboardAvoidingView>
+            <KeyboardAvoidingView style={mainStyles.container}> 
 
 
                 <View style={mainStyles.container}>
@@ -142,9 +120,9 @@ class Login extends Component {
 
                     <View style={styles.inputUnit}>
 
-                        <Text style={styles.text}>Username</Text>
+                        <Text style={styles.text}>Usuario</Text>
 
-                        <TextInput placeholder="Username" style={styles.input} onChangeText={username => this.handleChange({
+                        <TextInput placeholder="Usuario" style={styles.input} onChangeText={username => this.handleChange({
                             field: "username",
                             value: username
                         })} />
@@ -152,8 +130,8 @@ class Login extends Component {
                     </View>
 
                     <View style={styles.inputUnit}>
-                        <Text style={styles.text}>Password</Text>
-                        <TextInput placeholder="Password" style={styles.input} secureTextEntry
+                        <Text style={styles.text}>Contra</Text>
+                        <TextInput placeholder="Contra" style={styles.input} secureTextEntry
                             onChangeText={password => this.handleChange({
                                 field: "password",
                                 value: password
@@ -171,11 +149,12 @@ class Login extends Component {
                     <TouchableOpacity style={{
                         marginVertical: 20,
                         paddingVertical: 20,
-                    }} onPress={() => this.props.navigation.navigate("Register")} >
+                    }} onPress={() => this.props.navigation.navigate("Home")} >
                         <Text style={{
                             fontSize: 18,
-                            textAlign: "center"
-                        }}> Dont Have an Account? Register</Text>
+                            textAlign: "center",
+                            color:'white'
+                        }}>Hacé click para crear una Cuenta</Text>
                     </TouchableOpacity>
 
                 </View>
