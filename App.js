@@ -11,13 +11,7 @@ const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore
 
 class App extends Component {
 
-  componentDidMount() {
-
-    // firebase.database().ref().set("testing mic").then(response => {
-
-    // })
-  }
-
+  
   render() {
     return (
       <Provider store={createStoreWithMiddleware(reducers)}>
